@@ -1,5 +1,4 @@
 from db import db
-from flask_jwt_extended import get_jwt_identity
 
 class EnrollmentModel(db.Model):
     __tablename__ = "register"
@@ -14,7 +13,7 @@ class EnrollmentModel(db.Model):
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
     grade = db.Column(db.String(10), default='N/A')
-    student_id = db.Column(db.String(80), nullable=False)
+    # student_id = db.Column(db.String(80), nullable=False)
 
     
     # student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
@@ -28,18 +27,7 @@ class EnrollmentModel(db.Model):
     
     
     
-    
-#     def __repr__(self):
-#             return '<CourseRegistered %r>' % self.id
 
-
-# def check_if_registered(course_code):
-#     course = EnrollmentModel.query.filter_by(
-#         course_code=course_code, student_id =get_jwt_identity()
-#     ).first()
-#     if course:
-#         return True
-#     return False
    
     
 

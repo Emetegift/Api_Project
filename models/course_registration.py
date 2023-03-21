@@ -13,7 +13,7 @@ class CourseRegistrationModel(db.Model):
     grade = db.Column(db.String(10), default='N/A')
     # grade = db.Column(db.String(10), nullable=False)
     # credit = db.Column(db.Integer, nullable=False)
-    course_unit = db.Column(db.Integer, nullable=False)
+    course_unit = db.Column(db.String(5), nullable=False)
     registered_courses = db.relationship('EnrollmentModel', backref='register', lazy=True, cascade="all, delete")
     student_registered = db.relationship('EnrollmentModel', viewonly=True, overlaps="course,register", backref='student_')
     # registered_students_in_each_course = db.Column(db.Integer, nullable=False)

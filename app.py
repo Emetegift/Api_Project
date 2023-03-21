@@ -1,6 +1,7 @@
 import os
 from flask import Flask, jsonify
 from flask_smorest import Api
+# from collections.abc import Mapping
 from flask_jwt_extended import JWTManager
 from db import db
 from blocklist import BLOCKLIST
