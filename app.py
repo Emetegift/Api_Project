@@ -21,7 +21,8 @@ def create_app(db_url=None):
     app.config["OPENAPI_URL_PREFIX"] = "/"
     app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
     app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL", "sqlite:///data.db")
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL", "postgres://kzgvxqiniokvbr:4acf5e02e5205a99314fae2fe3032b067e9207722197394459d3b7ccf04c0d07@ec2-3-93-160-246.compute-1.amazonaws.com:5432/d7k0gbmepi1m8h")
+    # app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL", "sqlite:///data.db")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
 
@@ -75,10 +76,10 @@ def create_app(db_url=None):
     
     
 # if __name__=="__main__":
-#     app.run(debug=True)
+    # app.run(debug=True)
 
     return app
+port = int(os.environ.get("PORT", 5000))
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
